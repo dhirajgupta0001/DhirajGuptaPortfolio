@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-500: #2563eb;
+  /* Blue 600 */
+  --color-brand-600: #1d4ed8;
+  --color-brand-900: #1e3a8a;
+  --color-accent-500: #4f46e5;
+  /* Indigo 600 */
+  --color-accent-600: #4338ca;
+  --color-accent-900: #312e81;
+
+  --shadow-glass: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
+  --shadow-glass-hover: 0 8px 30px -4px rgba(37, 99, 235, 0.1);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-shimmer: shimmer 2s linear infinite;
+
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(100%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg border border-slate-200 shadow-sm;
+  }
+
+  .glass-card {
+    @apply bg-white/70 hover:bg-white/90 backdrop-blur-xl border border-slate-200/80 rounded-2xl transition-all duration-300 shadow-glass hover:shadow-glass-hover;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-accent-500;
+  }
+}
